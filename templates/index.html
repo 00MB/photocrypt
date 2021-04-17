@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Securii</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+
+  <body>
+    <form class="box" action="index.html" method="post">
+      <h1>Login</h1>
+      <input type="text" name="" placeholder="Username" />
+      <input
+        type="file"
+        name=""
+        id="file"
+        onchange="pressed()"
+        style="display: none"
+      />
+      <label for="file" id="fileLabel">Upload secure image</label>
+      <input type="submit" name="" value="Login" />
+      <a href="{{ url_for('register') }}">Create an account</a>
+    </form>
+    <script type="text/javascript">
+      window.pressed = function () {
+        var a = document.getElementById("file");
+        if (a.value == "") {
+          fileLabel.innerHTML = "Choose file";
+        } else {
+          var theSplit = a.value.split("\\");
+          fileLabel.innerHTML = theSplit[theSplit.length - 1];
+        }
+      };
+    </script>
+  </body>
+</html>

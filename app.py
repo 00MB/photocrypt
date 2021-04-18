@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from convert import ascifii
 from hashlib import sha256
 import os
 import pymongo 
@@ -32,7 +31,7 @@ def index():
     if request.form.get("username", False) != False:
         username = request.form['username']
         image = request.files['file']
-        image.save("pure.jpg")
+        image.save("pure.png")
         encrypted_string = getCode()
         existingUser = list(collection.find({'username':username}))
         if(existingUser):
@@ -49,7 +48,7 @@ def register():
     if request.form.get("username", False) != False:
         username = request.form['username']
         image = request.files['file']
-        image.save("pure.jpg")
+        image.save("pure.png")
         encrypted_string = getCode()
         exists = list(collection.find({'username':username}))
         if(exists):

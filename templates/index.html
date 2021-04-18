@@ -7,15 +7,21 @@
   </head>
 
   <body>
-    <form class="box" action="index.html" method="post">
+    <form
+      class="box"
+      action="{{ url_for('index') }}"
+      method="post"
+      enctype="multipart/form-data"
+    >
       <h1>Login</h1>
-      <input type="text" name="" placeholder="Username" />
+      <input type="text" name="username" placeholder="Username" />
       <input
         type="file"
-        name=""
+        name="file"
         id="file"
         onchange="pressed()"
         style="display: none"
+        accept=".jpg,.png"
       />
       <label for="file" id="fileLabel">Upload secure image</label>
       <input type="submit" name="" value="Login" />

@@ -8,6 +8,10 @@ thisForm.addEventListener("submit", async function (e) {
     "https://photocrypthack.herokuapp.com/https://www.vippng.com/png/detail/320-3209103_200-kb-download-tree-with-transparent-background-clipart.png/true/true/10",
     {
       method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     }
   );
 

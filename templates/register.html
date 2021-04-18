@@ -7,9 +7,14 @@
   </head>
 
   <body>
-    <form class="box" action="register.html" method="post">
+    <form
+      class="box"
+      action="{{ url_for('register') }}"
+      method="post"
+      enctype="multipart/form-data"
+    >
       <h1>Register</h1>
-      <input type="text" name="" placeholder="Username" />
+      <input type="text" name="username" placeholder="Username" />
       <input
         type="file"
         name="file"

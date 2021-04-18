@@ -16,6 +16,8 @@ def ascifii():
     outputImg = Image.new('RGB',(10*width, 18*height), color =(0,0,0))
     draw = ImageDraw.Draw(outputImg)
 
+    asciiArr= ""
+
     for i in range(height):    
         for j in range(width):
             r, g, b = pix[j,i]
@@ -23,5 +25,9 @@ def ascifii():
             pix[j, i] = (avg , avg , avg)
             charToAdd = chars[int((float(avg)/255)*len(chars))]
             draw.text((j*10 , i*18), charToAdd  , fill =(255,255,255))
+            asciiArr += charToAdd
 
     outputImg.save("tmp/output.png")
+
+    for x in asciiArr:
+        print(x,end="")

@@ -4,28 +4,19 @@
     <meta charset="utf-8" />
     <title>Photocrypt</title>
     <link rel="stylesheet" href="static/css/style.css" />
-
-    
-
   </head>
-
   <body>
-
-    
-
-
     <form
       class="box"
       action="{{ url_for('index') }}"
       method="post"
       enctype="multipart/form-data"
     >
-
-    {% if createdUserLogin %}
-     <p style="color:greenyellow;overflow-wrap:break-word">
-      Account created successfully!
-    </p>
-    {% endif %}
+      {% if createdUserLogin %}
+      <p style="color: greenyellow; overflow-wrap: break-word">
+        Account created successfully!
+      </p>
+      {% endif %}
 
       <h1>Login</h1>
       <input type="text" name="username" placeholder="Username" />
@@ -40,7 +31,9 @@
       <label for="file" id="fileLabel">Upload secure image</label>
       <input type="submit" name="" value="Login" />
       {% if invalid %}
-      <p style="color: red;">The username or secure image you entered is incorrect.</p>
+      <p style="color: red">
+        The username or secure image you entered is incorrect.
+      </p>
       {% endif %}
       <a href="{{ url_for('register') }}">Create an account</a>
       <!-- {% if encrypted_string %}

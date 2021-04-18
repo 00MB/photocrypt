@@ -23,11 +23,25 @@
     <h1>Photocrypt</h1>
     <form class="box" method="post" id="form">
       <input type="text" name="url" placeholder="Image URL" />
-      <input type="checkbox" id="specialChars" name="specialChars" />
-      <label for="specialChars">Include special characters</label><br />
 
-      <input type="checkbox" id="capitalLetters" name="capitalLetters" />
-      <label for="capitalLetters">Include capital letters</label><br />
+      <div class="optional">
+        <input type="checkbox" name="chars" id="chars" />
+        <label for="specialChars">Include special characters</label><br />
+
+        <input type="checkbox" name="caps" id="caps" />
+        <label for="capitalLetters">Include capital letters</label><br />
+
+        <input
+          type="number"
+          id="length"
+          min="8"
+          name="length"
+          id="length"
+          style="width: 40px"
+        />
+        <label for="capitalLetters">Max length allowed</label><br />
+      </div>
+
       <input type="submit" name="" id="submit" value="Create" />
     </form>
     <p id="demo"></p>

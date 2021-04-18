@@ -67,7 +67,6 @@ def landingPage(url, caps, chars, length):
         encrypted_string = encrypted_string[1:] + "A"
     if chars == "true":
         encrypted_string =  "!"+ encrypted_string[1:]
-    resp = Response("hey")
+    resp = Response(encrypted_string)
     resp.headers['Access-Control-Allow-Origin'] = '*'
-    resp.headers['Code'] = encrypted_string
     return resp

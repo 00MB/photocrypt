@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request
 from convert import ascifii
 from hashlib import sha256
+import os
 
 app = Flask(__name__)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -11,6 +13,7 @@ def index():
         image = request.files['file']
         image.save("pure.jpg")
         ascii_string = ascifii()
+        os.remove("pure.jpg")
         encrypted_string = sha256(ascii_string.encode()).hexdigest()
         print(encrypted_string)
     return render_template('index.html')
@@ -22,5 +25,6 @@ def register():
         image = request.files['file']
         image.save("pure.jpg")
         ascii_string = ascifii()
+        os.remove("pure.jpg")
         encrypted_string = sha256(ascii_string.encode()).hexdigest()
     return render_template('register.html')

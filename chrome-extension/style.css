@@ -16,6 +16,10 @@ body {
   opacity: 1; /* Firefox */
 }
 
+label {
+  color: white
+}
+
 .box {
   position: absolute;
   top: 50%;

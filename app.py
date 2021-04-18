@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, request, Response, make_response
 from hashlib import sha256
 import os
 import pymongo 
@@ -67,6 +67,6 @@ def landingPage(url, caps, chars, length):
         encrypted_string = encrypted_string[1:] + "A"
     if chars == "true":
         encrypted_string =  "!"+ encrypted_string[1:]
-    resp = Response(encrypted_string)
+    resp = make_response(encrypted_string)
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp

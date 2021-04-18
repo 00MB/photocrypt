@@ -1,22 +1,13 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var submitLinkButton = document.getElementById('submitLink');
-    submitLinkButton.addEventListener('click', function() {
-        // chrome.runtime.sendMessage({msg: 'file_input'});
-        console.log("Here!");
-    });
-    // checkPageButton.addEventListener('click', function() {
-    //     chrome.tabs.getSelected(null, function(tab) {
-    //         d = document;
+const thisForm = document.getElementById("form");
+thisForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const formData = new FormData(thisForm).entries();
+  const response = await fetch("https://reqres.in/api/users", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(Object.fromEntries(formData)),
+  });
 
-    //         var f = d.createElement('form');
-    //         f.action = 'http://gtmetrix.com/analyze.html?bm';
-    //         f.method = 'post';
-    //         var i = d.createElement('input');
-    //         i.name = 'url';
-    //         i.value = tab.url;
-    //         f.appendChild(i);
-    //         d.body.appendChild(f);
-    //         f.submit();
-    //     });
-    // }, false);
-}, false);
+  const result = await response.json();
+  console.log(result);
+});

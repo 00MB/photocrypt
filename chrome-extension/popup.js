@@ -41,12 +41,29 @@ thisForm.addEventListener("submit", async function (e) {
     }
   );
 
+  var x = document.getElementById("optional");
+  x.style.display = "none";
+  document.getElementById("demo").style.display = "block";
   try {
     const result = await response.json();
     document.getElementById("demo").innerHTML = "Code: " + result.code;
+    document.getElementById("demo").style.color = "#313131";
   } catch (err) {
     document.getElementById("demo").innerHTML = "Invalid URL";
+    document.getElementById("demo").style.color = "red";
   }
 
   thisForm.reset();
+});
+
+var toggle = document.getElementById("toggle");
+toggle.addEventListener("click", async function (e) {
+  e.preventDefault();
+  var x = document.getElementById("optional");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    document.getElementById("demo").style.display = "none";
+  } else {
+    x.style.display = "none";
+  }
 });

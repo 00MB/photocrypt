@@ -20,11 +20,14 @@
     class="container text-center"
     style="background-image: linear-gradient(to bottom right, #fc575e, #f7b42c)"
   >
-    <h1>Photocrypt</h1>
+    <h1 style="padding-top: 20px">Photocrypt</h1>
     <form class="box" method="post" id="form">
       <input type="text" name="url" placeholder="Image URL" />
 
-      <div class="optional">
+      <input type="submit" name="" id="submit" value="Create" />
+
+      <p id="toggle">Optional validation</p>
+      <div class="optional" id="optional">
         <input type="checkbox" name="chars" id="chars" />
         <label for="specialChars">Include special characters</label><br />
 
@@ -43,10 +46,9 @@
         />
         <label for="capitalLetters">Max length allowed</label><br />
       </div>
-
-      <input type="submit" name="" id="submit" value="Create" />
     </form>
     <p id="demo"></p>
+    <p id="footer">Made with &#10084;&#65039;</p>
     <script src="popup.js"></script>
   </body>
 </html>

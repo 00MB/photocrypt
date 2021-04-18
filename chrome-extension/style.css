@@ -1,13 +1,15 @@
 body {
+  box-shadow: 15px 25px black;
+  border: 0.5px solid grey;
   margin: 0;
   padding: 10px;
   font-family: "Lato", sans-serif;
   /* background-image: url("https://insidesources.com/wp-content/uploads/2017/02/bigstock-Baker-Library-999916.jpg"); */
   /* background-size: cover; */
   min-height: 80vh;
-  min-width: 80vh;
+  min-width: 70vh;
   height: 400px;
-  width: 400px;
+  width: 350px;
 }
 
 ::placeholder {
@@ -17,7 +19,7 @@ body {
 }
 
 label {
-  color: white
+  color: white;
 }
 
 .box {
@@ -28,12 +30,16 @@ label {
   width: 300px;
   padding: 10vh;
   text-align: center;
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
 }
 
 h1 {
   color: white;
   text-transform: uppercase;
   font-weight: 500;
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
 }
 
 .box input[type="text"] {
@@ -73,4 +79,41 @@ h1 {
 
 .box input[type="submit"]:hover {
   background: #dfdddd;
+}
+
+#optional {
+  display: none;
+}
+
+#toggle {
+  text-decoration: underline;
+  color: white;
+  cursor: pointer;
+}
+
+#demo {
+  position: absolute;
+  color: #313131;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -55%);
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  padding-right: 5px;
+  color: white;
+  padding: 0;
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

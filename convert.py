@@ -5,7 +5,7 @@ def ascifii():
     # chars = "%B@$" 
     # chars = " -oW#"
     chars ="`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
-    img = Image.open("tmp/pure.jpg")
+    img = Image.open("pure.jpg")
     scale = 0.2
     width , height = img.size 
     img = img.resize((int(scale*width), int(scale*height*0.55555)) , Image.NEAREST)

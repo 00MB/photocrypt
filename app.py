@@ -8,7 +8,7 @@ def index():
     if request.form.get("username", False) != False:
         username = request.form['username']
         image = request.files['file']
-        image.save("tmp/pure.jpg")
+        image.save("pure.jpg")
         ascii_string = ascifii()
     return render_template('index.html')
 

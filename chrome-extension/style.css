@@ -4,20 +4,20 @@ body {
   font-family: sans-serif;
   /* background-image: url("https://insidesources.com/wp-content/uploads/2017/02/bigstock-Baker-Library-999916.jpg"); */
   /* background-size: cover; */
-  /* min-height: 100vh;
-  min-width: 100vh; */
+  min-height: 80vh;
+  min-width: 80vh;
   height: 400px;
   width: 400px;
 }
 
 .box {
   width: 300px;
-  padding: 40px;
+  padding: 10vh;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #191919;
+  background: #2e2e2e;
   text-align: center;
   border-radius: 2rem;
 }
@@ -28,11 +28,6 @@ body {
   font-weight: 500;
 }
 
-a {
-  color: grey;
-  opacity: 30%;
-}
-
 .box input[type="text"],
 #fileLabel {
   border: 0;
@@ -40,18 +35,17 @@ a {
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid orange;
+  border: 2px solid cadetblue;
   padding: 14px 10px;
   width: 200px;
   outline: none;
-  color: black;
+  color: white;
   border-radius: 24px;
   transition: 0.25s;
 }
 
 .box input[type="text"]:focus,
 #fileLabel:focus {
-  width: 280px;
   border-color: cadetblue;
 }
 

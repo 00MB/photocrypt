@@ -8,7 +8,8 @@ from datetime import datetime
 import json 
 from bson import json_util
 from bson.objectid import ObjectId
-
+import wget
+from image_to_ascii import ImageToAscii
 
 cluster = MongoClient("mongodb+srv://Angel:dailyTasksAppPass@cluster0.a5gk4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
@@ -18,16 +19,21 @@ collection = db["UserCredentials"]
 
 app = Flask(__name__)
 
+def getCode():
+    ImageToAscii(imagePath="pure.png", outputFile="ascii.txt")
+    f = open("ascii.txt", "r")
+    text = f.read()
+    os.remove("pure.png")
+    os.remove("ascii.txt")
+    return sha256(text.encode()).hexdigest()
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.form.get("username", False) != False:
         username = request.form['username']
         image = request.files['file']
         image.save("pure.jpg")
-        ascii_string = ascifii()
-        os.remove("pure.jpg")
-        encrypted_string = sha256(ascii_string.encode()).hexdigest()
-
+        encrypted_string = getCode()
         existingUser = list(collection.find({'username':username}))
         if(existingUser):
             if(existingUser[0]['password'] == encrypted_string):
@@ -44,9 +50,7 @@ def register():
         username = request.form['username']
         image = request.files['file']
         image.save("pure.jpg")
-        ascii_string = ascifii()
-        os.remove("pure.jpg")
-        encrypted_string = sha256(ascii_string.encode()).hexdigest()
+        encrypted_string = getCode()
         exists = list(collection.find({'username':username}))
         if(exists):
             return render_template('register.html', usernameTaken = True)
@@ -56,6 +60,12 @@ def register():
 
     return render_template('register.html')
 
-@app.route('/fetch',methods=['GET'])
-def landingPage():
-    return "<h1>test</h1>"
+@app.route('/<path:url>/<string:caps>/<string:chars>/<int:length>',methods=['GET','POST'])
+def landingPage(url, caps, chars, length):
+    image = wget.download(str(url), out = "pure.png")
+    encrypted_string = getCode()[:length]
+    if caps == "true":
+        encrypted_string = encrypted_string[1:] + "A"
+    if chars == "true":
+        encrypted_string =  "!"+ encrypted_string[1:]
+    return encrypted_string

@@ -28,3 +28,7 @@ def register():
         os.remove("pure.jpg")
         encrypted_string = sha256(ascii_string.encode()).hexdigest()
     return render_template('register.html')
+
+@app.route('/fetch', methods=['GET', 'POST'])
+def fetch():
+    return "test"

@@ -41,7 +41,12 @@ thisForm.addEventListener("submit", async function (e) {
     }
   );
 
-  const result = await response.json();
-  document.getElementById("demo").innerHTML = "Code: " + result.code;
+  try {
+    const result = await response.json();
+    document.getElementById("demo").innerHTML = "Code: " + result.code;
+  } catch (err) {
+    document.getElementById("demo").innerHTML = "Invalid URL";
+  }
+
   thisForm.reset();
 });

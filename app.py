@@ -56,10 +56,6 @@ def register():
 
     return render_template('register.html')
 
-@app.route('/landingPage',methods=['GET','POST'])
-def landingPage():
-    return render_template('landingPage.html')
-
 @app.route('/fetch',methods=['GET'])
 def landingPage():
     return "<h1>test</h1>"

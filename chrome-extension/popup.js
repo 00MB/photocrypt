@@ -13,7 +13,7 @@ thisForm.addEventListener("submit", async function (e) {
   if (caps != null) {
     caps = "true";
   } else {
-    chars = "false";
+    caps = "false";
   }
   var length = formData.get("length");
   console.log(

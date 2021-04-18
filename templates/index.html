@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>Securii</title>
+    <title>Photocrypt</title>
     <link rel="stylesheet" href="static/css/style.css" />
   </head>
 
@@ -26,6 +26,14 @@
       <label for="file" id="fileLabel">Upload secure image</label>
       <input type="submit" name="" value="Login" />
       <a href="{{ url_for('register') }}">Create an account</a>
+      {% if encrypted_string %}
+      <div>
+        <h3 style="color: white;">Your Encryted String:</h3>
+        <h4 style="color:greenyellow;overflow-wrap:break-word;">
+         {{encrypted_string}}
+        </h4>
+      
+      {% endif %}
     </form>
     <script type="text/javascript">
       window.pressed = function () {

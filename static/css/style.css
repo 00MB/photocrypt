@@ -24,6 +24,7 @@ body {
   font-weight: 500;
 }
 
+
 a {
   color: grey;
   opacity: 30%;
@@ -77,3 +78,4 @@ a {
 #fileLabel {
   cursor: pointer;
 }
+

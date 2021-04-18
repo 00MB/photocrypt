@@ -16,6 +16,7 @@ def index():
         os.remove("pure.jpg")
         encrypted_string = sha256(ascii_string.encode()).hexdigest()
         print(encrypted_string)
+        return render_template('index.html', encrypted_string = encrypted_string)
     return render_template('index.html')
 
 @app.route('/register', methods=['GET', 'POST'])

@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from convert import ascifii
-import os
 
 app = Flask(__name__)
 
@@ -10,7 +9,7 @@ def index():
         username = request.form['username']
         image = request.files['file']
         image.save("tmp/pure.jpg")
-        ascifii()
+        ascii_string = ascifii()
     return render_template('index.html')
 
 @app.route('/register')

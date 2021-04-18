@@ -5,7 +5,6 @@ def ascifii():
     # chars = "%B@$" 
     # chars = " -oW#"
     chars ="`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
-    print("char string length is :", len(chars))
     img = Image.open("tmp/pure.jpg")
     scale = 0.2
     width , height = img.size 
@@ -15,8 +14,7 @@ def ascifii():
 
     outputImg = Image.new('RGB',(10*width, 18*height), color =(0,0,0))
     draw = ImageDraw.Draw(outputImg)
-
-    asciiArr= ""
+    ascii_string = ""
 
     for i in range(height):    
         for j in range(width):
@@ -25,9 +23,6 @@ def ascifii():
             pix[j, i] = (avg , avg , avg)
             charToAdd = chars[int((float(avg)/255)*len(chars))]
             draw.text((j*10 , i*18), charToAdd  , fill =(255,255,255))
-            asciiArr += charToAdd
-
-    outputImg.save("tmp/output.png")
-
-    for x in asciiArr:
-        print(x,end="")
+            ascii_string += charToAdd
+    #outputImg.save("tmp/output.png")
+    return ascii_string

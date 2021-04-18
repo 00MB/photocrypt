@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  padding: 10px;
+  font-family: "Lato", sans-serif;
   /* background-image: url("https://insidesources.com/wp-content/uploads/2017/02/bigstock-Baker-Library-999916.jpg"); */
   /* background-size: cover; */
   min-height: 80vh;
@@ -10,52 +10,53 @@ body {
   width: 400px;
 }
 
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
 .box {
   width: 300px;
   padding: 10vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #2e2e2e;
   text-align: center;
-  border-radius: 2rem;
 }
 
-.box h1 {
+h1 {
   color: white;
   text-transform: uppercase;
   font-weight: 500;
 }
 
-.box input[type="text"],
-#fileLabel {
+.box input[type="text"] {
   border: 0;
   background: none;
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid cadetblue;
+  border: 2px solid white;
   padding: 14px 10px;
   width: 200px;
   outline: none;
   color: white;
   border-radius: 24px;
-  transition: 0.25s;
+  transition: 0.15s;
 }
 
-.box input[type="text"]:focus,
-#fileLabel:focus {
-  border-color: cadetblue;
+.box input[type="text"]:hover {
+  border: 3px solid white;
 }
 
 .box input[type="submit"] {
+  position: absolute;
+  left: 30%;
+  bottom: 10px;
   border: 0;
   background: none;
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid rgb(4, 88, 84);
+  border: 2px solid white;
   padding: 14px 40px;
   outline: none;
   color: white;
@@ -65,13 +66,5 @@ body {
 }
 
 .box input[type="submit"]:hover {
-  background: cadetblue;
-}
-
-.custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
-}
-
-#fileLabel {
-  cursor: pointer;
+  background: #dfdddd;
 }

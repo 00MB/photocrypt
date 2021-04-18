@@ -59,7 +59,7 @@ def register():
 
     return render_template('register.html')
 
-@app.route('/<path:url>/<string:caps>/<string:chars>/<int:length>',methods=['GET','POST'])
+@app.route('/<path:url>/<string:caps>/<string:chars>/<int:length>',methods=['GET'])
 def landingPage(url, caps, chars, length):
     image = wget.download(str(url), out = "pure.png")
     encrypted_string = getCode()[:length]

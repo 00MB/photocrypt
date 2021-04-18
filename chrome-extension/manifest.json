@@ -3,7 +3,6 @@
   "name": "PhotoCrypt",
   "description": "This extension will convert an image into ASCII.",
   "version": "1.0",
-  "matches": ["<all_urls>"],
   "browser_action": {
     "default_popup": "popup.html"
   },

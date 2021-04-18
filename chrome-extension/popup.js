@@ -1,7 +1,7 @@
-const thisForm = document.getElementById("form");
+var thisForm = document.getElementById("form");
 thisForm.addEventListener("submit", async function (e) {
   e.preventDefault();
-  const formData = new FormData(thisForm);
+  var formData = new FormData(thisForm);
   var url = formData.get("url");
   var chars = formData.get("chars");
   if (chars != null) {

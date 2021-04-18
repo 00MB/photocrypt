@@ -37,6 +37,8 @@ def index():
         if(existingUser):
             if(existingUser[0]['password'] == encrypted_string):
                 return render_template('landingPage.html')
+            else:
+                return render_template('index.html', invalid = True)
         else:
             return render_template('index.html', invalid = True)
         # print(encrypted_string)

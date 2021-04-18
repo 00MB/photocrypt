@@ -15,6 +15,12 @@
     >
       <h1>Register</h1>
       <input type="text" name="username" placeholder="Username" />
+      {% if usernameTaken %}
+        {% if usernameTaken == True %}
+        <p style="color: red;">This Username has already been taken.</p>
+        {% endif %}
+        
+      {% endif %}
       <input
         type="file"
         name="file"

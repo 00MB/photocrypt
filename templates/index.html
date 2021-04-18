@@ -4,15 +4,29 @@
     <meta charset="utf-8" />
     <title>Photocrypt</title>
     <link rel="stylesheet" href="static/css/style.css" />
+
+    
+
   </head>
 
   <body>
+
+    
+
+
     <form
       class="box"
       action="{{ url_for('index') }}"
       method="post"
       enctype="multipart/form-data"
     >
+
+    {% if createdUserLogin %}
+     <p style="color:greenyellow;overflow-wrap:break-word">
+      Account created successfully!
+    </p>
+    {% endif %}
+
       <h1>Login</h1>
       <input type="text" name="username" placeholder="Username" />
       <input
@@ -25,15 +39,18 @@
       />
       <label for="file" id="fileLabel">Upload secure image</label>
       <input type="submit" name="" value="Login" />
+      {% if invalid %}
+      <p style="color: red;">The username or secure image you entered is incorrect.</p>
+      {% endif %}
       <a href="{{ url_for('register') }}">Create an account</a>
-      {% if encrypted_string %}
+      <!-- {% if encrypted_string %}
       <div>
         <h3 style="color: white;">Your Encryted String:</h3>
         <h4 style="color:greenyellow;overflow-wrap:break-word;">
          {{encrypted_string}}
         </h4>
       
-      {% endif %}
+      {% endif %} -->
     </form>
     <script type="text/javascript">
       window.pressed = function () {

@@ -17,6 +17,10 @@ body {
 }
 
 .box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 300px;
   padding: 10vh;
   text-align: center;
@@ -48,8 +52,6 @@ h1 {
 }
 
 .box input[type="submit"] {
-  position: absolute;
-  left: 30%;
   bottom: 10px;
   border: 0;
   background: none;
